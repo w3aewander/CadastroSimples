@@ -8,12 +8,13 @@ namespace CadastroSimples
 {
     internal class Pessoa
     {
-
+        public int Id { get; set; }
         public string Nome { get; set; }
         public DateOnly DataNascimento { get; set; }
         public string Email { get; set; }
-        public Pessoa(string nome, DateOnly dataNascimento, string email)
+        public Pessoa(int id, string nome, DateOnly dataNascimento, string email)
         {
+            Id = id;
             Nome = nome;
             DataNascimento = dataNascimento;
             Email = email;

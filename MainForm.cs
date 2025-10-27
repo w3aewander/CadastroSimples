@@ -26,10 +26,12 @@ namespace CadastroSimples
 
         private void SaveData()
         {
+
             Pessoa p = new Pessoa(
+            int.Parse(txtId.Text),
             txtNome.Text,
             DateOnly.FromDateTime(dtpDataNascimento.Value),
-            txtEmail.Text 
+            txtEmail.Text
             );
 
             // Adiciona a pessoa no cadastro
@@ -42,15 +44,15 @@ namespace CadastroSimples
             dgvTabela.Rows.Clear();
             foreach (Pessoa p in Cadastro.pessoas)
             {
-                dgvTabela.Rows.Add(p.Nome, p.DataNascimento.ToString("dd/MM/yyyy"), p.Email);
+                dgvTabela.Rows.Add(p.Id, p.Nome, p.DataNascimento.ToString("dd/MM/yyyy"), p.Email);
             }
         }
-        private void LoadDataToListBox()        
+        private void LoadDataToListBox()
         {
             lstTabela.Items.Clear();
             foreach (Pessoa p in Cadastro.pessoas)
             {
-                lstTabela.Items.Add($"Nome: {p.Nome}, " +
+                lstTabela.Items.Add($"Id: {p.Id}, Nome: {p.Nome}, " +
                      $"Data Nascimento: {p.DataNascimento.ToString("dd/MM/yyyy")}, " +
                      $"Email: {p.Email}");
             }
@@ -60,17 +62,35 @@ namespace CadastroSimples
             ClearControls();
         }
 
-        private void ClearControls()        
+        private void ClearControls()
         {
-            txtNome.Clear();    
+            txtNome.Clear();
             txtEmail.Clear();
             dtpDataNascimento.Value = DateTime.Now;
+            txtId.Text = "0";
         }
 
+        private void loadDataFromGridView()
+        {
+            //Aqui recarrega os dados que estão no DataGridView
+            if (dgvTabela.CurrentRow != null)
+            {
+                txtId.Text = dgvTabela.CurrentRow.Cells[0].Value.ToString();
+                txtNome.Text = dgvTabela.CurrentRow.Cells[1].Value.ToString();
+                dtpDataNascimento.Value = DateTime.Parse(dgvTabela.CurrentRow.Cells[2].Value.ToString());
+                txtEmail.Text = dgvTabela.CurrentRow.Cells[3].Value.ToString();
+            }
+
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             lstTabela.Items.Clear();
+        }
+
+        private void dgvTabela_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            loadDataFromGridView();
         }
     }
 }

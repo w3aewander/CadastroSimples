@@ -35,19 +35,22 @@
             btnAdicionar = new Button();
             Tabela = new Label();
             dgvTabela = new DataGridView();
-            nome = new DataGridViewTextBoxColumn();
-            dataNascimento = new DataGridViewTextBoxColumn();
-            email = new DataGridViewTextBoxColumn();
             label1 = new Label();
             txtEmail = new TextBox();
             lstTabela = new ListBox();
             label3 = new Label();
+            label4 = new Label();
+            txtId = new TextBox();
+            ID = new DataGridViewTextBoxColumn();
+            nome = new DataGridViewTextBoxColumn();
+            dataNascimento = new DataGridViewTextBoxColumn();
+            email = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvTabela).BeginInit();
             SuspendLayout();
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(69, 74);
+            txtNome.Location = new Point(46, 200);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(347, 31);
             txtNome.TabIndex = 1;
@@ -55,7 +58,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(69, 141);
+            label2.Location = new Point(46, 267);
             label2.Name = "label2";
             label2.Size = new Size(148, 25);
             label2.TabIndex = 2;
@@ -64,14 +67,14 @@
             // dtpDataNascimento
             // 
             dtpDataNascimento.Format = DateTimePickerFormat.Short;
-            dtpDataNascimento.Location = new Point(71, 169);
+            dtpDataNascimento.Location = new Point(48, 295);
             dtpDataNascimento.Name = "dtpDataNascimento";
             dtpDataNascimento.Size = new Size(345, 31);
             dtpDataNascimento.TabIndex = 3;
             // 
             // btnNovo
             // 
-            btnNovo.Location = new Point(76, 333);
+            btnNovo.Location = new Point(53, 459);
             btnNovo.Name = "btnNovo";
             btnNovo.Size = new Size(152, 54);
             btnNovo.TabIndex = 4;
@@ -81,7 +84,7 @@
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Location = new Point(252, 333);
+            btnAdicionar.Location = new Point(229, 459);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(143, 54);
             btnAdicionar.TabIndex = 5;
@@ -92,7 +95,7 @@
             // Tabela
             // 
             Tabela.AutoSize = true;
-            Tabela.Location = new Point(556, 35);
+            Tabela.Location = new Point(438, 67);
             Tabela.Name = "Tabela";
             Tabela.Size = new Size(61, 25);
             Tabela.TabIndex = 7;
@@ -101,12 +104,74 @@
             // dgvTabela
             // 
             dgvTabela.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvTabela.Columns.AddRange(new DataGridViewColumn[] { nome, dataNascimento, email });
-            dgvTabela.Location = new Point(438, 74);
+            dgvTabela.Columns.AddRange(new DataGridViewColumn[] { ID, nome, dataNascimento, email });
+            dgvTabela.Location = new Point(438, 95);
             dgvTabela.Name = "dgvTabela";
             dgvTabela.RowHeadersWidth = 62;
-            dgvTabela.Size = new Size(555, 185);
+            dgvTabela.Size = new Size(555, 250);
             dgvTabela.TabIndex = 8;
+            dgvTabela.CellClick += dgvTabela_CellClick;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(49, 360);
+            label1.Name = "label1";
+            label1.Size = new Size(61, 25);
+            label1.TabIndex = 9;
+            label1.Text = "E-mail";
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(52, 388);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(341, 31);
+            txtEmail.TabIndex = 10;
+            // 
+            // lstTabela
+            // 
+            lstTabela.FormattingEnabled = true;
+            lstTabela.ItemHeight = 25;
+            lstTabela.Location = new Point(438, 360);
+            lstTabela.MultiColumn = true;
+            lstTabela.Name = "lstTabela";
+            lstTabela.Size = new Size(555, 154);
+            lstTabela.TabIndex = 11;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(44, 168);
+            label3.Name = "label3";
+            label3.Size = new Size(61, 25);
+            label3.TabIndex = 12;
+            label3.Text = "Nome";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(42, 67);
+            label4.Name = "label4";
+            label4.Size = new Size(30, 25);
+            label4.TabIndex = 13;
+            label4.Text = "ID";
+            // 
+            // txtId
+            // 
+            txtId.Location = new Point(46, 98);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(347, 31);
+            txtId.TabIndex = 14;
+            txtId.Text = "0";
+            // 
+            // ID
+            // 
+            ID.HeaderText = "ID/Código";
+            ID.MinimumWidth = 8;
+            ID.Name = "ID";
+            ID.ReadOnly = true;
+            ID.Width = 150;
             // 
             // nome
             // 
@@ -129,46 +194,13 @@
             email.Name = "email";
             email.Width = 150;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(72, 234);
-            label1.Name = "label1";
-            label1.Size = new Size(61, 25);
-            label1.TabIndex = 9;
-            label1.Text = "E-mail";
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(75, 262);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(341, 31);
-            txtEmail.TabIndex = 10;
-            // 
-            // lstTabela
-            // 
-            lstTabela.FormattingEnabled = true;
-            lstTabela.ItemHeight = 25;
-            lstTabela.Location = new Point(438, 274);
-            lstTabela.MultiColumn = true;
-            lstTabela.Name = "lstTabela";
-            lstTabela.Size = new Size(555, 154);
-            lstTabela.TabIndex = 11;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(67, 42);
-            label3.Name = "label3";
-            label3.Size = new Size(61, 25);
-            label3.TabIndex = 12;
-            label3.Text = "Nome";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1005, 457);
+            ClientSize = new Size(1028, 560);
+            Controls.Add(txtId);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(lstTabela);
             Controls.Add(txtEmail);
@@ -200,9 +232,12 @@
         private Label label1;
         private TextBox txtEmail;
         private ListBox lstTabela;
+        private Label label3;
+        private Label label4;
+        private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn nome;
         private DataGridViewTextBoxColumn dataNascimento;
         private DataGridViewTextBoxColumn email;
-        private Label label3;
+        private TextBox txtId;
     }
 }
