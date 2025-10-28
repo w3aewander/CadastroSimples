@@ -80,6 +80,12 @@ namespace CadastroSimples
                 dtpDataNascimento.Value = DateTime.Parse(dgvTabela.CurrentRow.Cells[2].Value.ToString());
                 txtEmail.Text = dgvTabela.CurrentRow.Cells[3].Value.ToString();
             }
+            //Se a linha atual for nula, não faz nada
+            if (dgvTabela.CurrentRow == null)
+            {
+                return;
+            }
+
 
         }
 
