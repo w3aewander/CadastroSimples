@@ -32,6 +32,10 @@ namespace CadastroSimples
 
         public static void LoadFromFile()
         {
+
+            //Limpar a lista antes de carregar
+            pessoas.Clear();
+
             // Implementar a lógica para carregar os dados de um arquivo, se necessário
             Console.WriteLine("Carregando dados de arquivo...");
             if (System.IO.File.Exists("cadastro.txt"))
