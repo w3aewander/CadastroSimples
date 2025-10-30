@@ -16,14 +16,15 @@ namespace CadastroSimples
             // Implementar a lógica para salvar os dados em um arquivo, se necessário
             Console.WriteLine("Salvando dados em arquivo...");
 
+            //Limpar a lista antes de salvar
+            pessoas.Clear();
+
             //Salvar os dados em um arquivo de texto
             using (System.IO.StreamWriter file = new System.IO.StreamWriter("cadastro.txt",true))
             {
-                //foreach (Pessoa p in pessoas)
-                //{
-                //    file.WriteLine($"{p.Id};{p.Nome};{p.DataNascimento.ToString("yyyy-MM-dd")};{p.Email}");
-                //}
-                file.WriteLine($"{pessoa.Id};{pessoa.Nome};{pessoa.DataNascimento.ToString("yyyy-MM-dd")};{pessoa.Email}");
+
+                file.WriteLine($"{pessoa.Id};{pessoa.Nome};" +
+                    $"{pessoa.DataNascimento.ToString("yyyy-MM-dd")};{pessoa.Email}");
             }
 
             LoadFromFile();
@@ -38,16 +39,16 @@ namespace CadastroSimples
                 using (System.IO.StreamReader file = new System.IO.StreamReader("cadastro.txt"))
                 {
                     string line;
-                    while ((line = file.ReadLine()) != null)
+                    while ((line = file.ReadLine()) != null) //Lê linha por linha: campos da linha separados por ;
                     {
                         var parts = line.Split(';');
                         if (parts.Length == 4)
                         {
                             Pessoa p = new Pessoa(
-                                int.Parse(parts[0]),
-                                parts[1],
-                                DateOnly.Parse(parts[2]),
-                                parts[3]
+                                int.Parse(parts[0]), //id
+                                parts[1], //nome
+                                DateOnly.Parse(parts[2]), //data nascimento
+                                parts[3] //email
                             );
                             pessoas.Add(p);
                         }

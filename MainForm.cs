@@ -10,6 +10,11 @@ namespace CadastroSimples
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
+            // Limpa a ListBox antes de recarregar os dados
+            lstTabela.Items.Clear();
+
+            // Limpa o DataGridView antes de recarregar os dados
+            dgvTabela.Rows.Clear();
 
             // Salva os dados do formulário
             SaveData();
@@ -60,7 +65,8 @@ namespace CadastroSimples
                 );
 
                 // Adiciona a pessoa no cadastro
-                Cadastro.pessoas.Add(p);
+                //Cadastro.pessoas.Add(p);
+                Cadastro.SaveToFile(p);
             }
             else
             {
@@ -81,7 +87,13 @@ namespace CadastroSimples
 
         private void LoadDataToGridView()
         {
+            // Limpa o DataGridView
             dgvTabela.Rows.Clear();
+
+            // Recarrega os dados do arquivo
+            Cadastro.LoadFromFile();
+
+            // Adiciona os dados ao DataGridView
             foreach (Pessoa p in Cadastro.pessoas)
             {
                 dgvTabela.Rows.Add(p.Id, p.Nome, p.DataNascimento.ToString("dd/MM/yyyy"), p.Email);
@@ -132,6 +144,7 @@ namespace CadastroSimples
         private void MainForm_Load(object sender, EventArgs e)
         {
             lstTabela.Items.Clear();
+            LoadDataToGridView();
         }
 
         private void dgvTabela_CellClick(object sender, DataGridViewCellEventArgs e)
