@@ -77,7 +77,7 @@
             // 
             btnNovo.Location = new Point(53, 459);
             btnNovo.Name = "btnNovo";
-            btnNovo.Size = new Size(112, 54);
+            btnNovo.Size = new Size(74, 54);
             btnNovo.TabIndex = 4;
             btnNovo.Text = "Novo";
             btnNovo.UseVisualStyleBackColor = true;
@@ -85,7 +85,7 @@
             // 
             // btnAdicionar
             // 
-            btnAdicionar.Location = new Point(171, 460);
+            btnAdicionar.Location = new Point(133, 459);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(106, 54);
             btnAdicionar.TabIndex = 5;
@@ -198,9 +198,9 @@
             // 
             // btnExcluir
             // 
-            btnExcluir.Location = new Point(293, 464);
+            btnExcluir.Location = new Point(245, 459);
             btnExcluir.Name = "btnExcluir";
-            btnExcluir.Size = new Size(112, 49);
+            btnExcluir.Size = new Size(112, 55);
             btnExcluir.TabIndex = 15;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;

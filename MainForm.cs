@@ -170,14 +170,14 @@ namespace CadastroSimples
             Pessoa p = Cadastro.pessoas.Find(x => x.Id == idToDelete);
             if (p != null)
             {
-                Cadastro.pessoas.Remove(p);
+                Cadastro.DeleteRecord(p);
             }
         }
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             DeleteData();
             LoadDataToGridView();
-            LoadDataToListBox();
+            //LoadDataToListBox();
             ClearControls();
         }
 
